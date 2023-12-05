@@ -25,6 +25,4 @@ export class SignUp implements SignUpInterface {
             password: hashedPassword,
         });
     }
-
-
 }

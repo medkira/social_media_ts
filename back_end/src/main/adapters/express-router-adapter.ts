@@ -22,6 +22,6 @@ export const expressRouterAdapter = (
     } else {
         res.status(httpResponse.statusCode).json({
             error: httpResponse.body?.message,
-        })
+        });
     }
 }

@@ -6,5 +6,5 @@ export interface DeletePostInterface extends UseCase<DeletePostInterface.Request
 
 export namespace DeletePostInterface {
     export type Request = string;
-    export type Response = void
+    export type Response = void;
 }

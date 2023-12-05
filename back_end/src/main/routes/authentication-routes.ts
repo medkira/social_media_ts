@@ -7,5 +7,5 @@ import { makeSignUpController } from "@main/factories/controller/authentication/
 
 export default (router: Router): void => {
     router.post('/login', expressRouterAdapter(makeSignInController()));
-    router.post('/register', expressRouterAdapter(makeSignUpController()))
+    router.post('/register', expressRouterAdapter(makeSignUpController()));
 }

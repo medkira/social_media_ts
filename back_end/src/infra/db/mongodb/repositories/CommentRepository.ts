@@ -1,12 +1,15 @@
 import { CreateCommentRepository } from "@application/interfaces/repositories/comments/CreateCommentRepository.js";
 import CommentModel from "../models/comment.model.js";
-import { objectIdToString } from "../helpers/mappers.js";
+import { mapDocument, objectIdToString, stringToObjectId } from "../helpers/mappers.js";
 import { GetTotalCommentsByPostIdRepository } from "@application/interfaces/repositories/posts/GetTotalCommentsByPostIdRepository.js";
-import PostModel from "../models/post.model.js";
+import { DeleteCommentRepository } from "@application/interfaces/repositories/comments/DeleteCommentRepository.js";
+import { GetCommentByIdRepository } from "@application/interfaces/repositories/comments/GetCommentByIdRepository.js";
 
 export class CommentRepository implements
     CreateCommentRepository,
-    GetTotalCommentsByPostIdRepository {
+    GetTotalCommentsByPostIdRepository,
+    DeleteCommentRepository,
+    GetCommentByIdRepository {
 
 
     async createComment(commentData: CreateCommentRepository.Request): Promise<string> {
@@ -20,7 +23,18 @@ export class CommentRepository implements
         return objectIdToString(savedComment._id);
     }
 
-    getTotalCommentsByPostId(postId: GetTotalCommentsByPostIdRepository.Request): Promise<GetTotalCommentsByPostIdRepository.Response> {
-        return CommentModel.countDocuments({ postId })
+    async getTotalCommentsByPostId(postId: GetTotalCommentsByPostIdRepository.Request): Promise<GetTotalCommentsByPostIdRepository.Response> {
+        return await CommentModel.countDocuments({ postId })
     }
+
+
+    async deleteComment(commentId: DeleteCommentRepository.Request): Promise<DeleteCommentRepository.Response> {
+        await CommentModel.findOneAndDelete(stringToObjectId(commentId));
+    }
+
+    async getCommentById(commentId: GetCommentByIdRepository.Request): Promise<GetCommentByIdRepository.Response> {
+        const rawComment = await CommentModel.findById(stringToObjectId(commentId));
+        return rawComment && mapDocument(rawComment);
+    }
+
 }

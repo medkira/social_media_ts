@@ -5,7 +5,6 @@ import { GetPostByIdRepository } from "@application/interfaces/repositories/post
 import { isValidObjectId } from "mongoose";
 import { UpdatePostRepository } from "@application/interfaces/repositories/posts/UpdatePostRepository.js";
 import { Post } from "@domain/entities/Post.js";
-import { UpdatePostTotalComments } from "@application/use-cases/posts/UpdatePostTotalComments.js";
 import { UpdatePostTotalCommentsRepository } from "@application/interfaces/repositories/posts/UpdatePostTotalCommentsRepository.js";
 import { DeletePostRepository } from "@application/interfaces/repositories/posts/DeletePostInterface.js";
 
@@ -38,6 +37,7 @@ export class PostRepository implements
         }
 
         const rawPost = await PostModel.findById(postId);
+
         return rawPost && mapDocument(rawPost);
     }
 
@@ -54,7 +54,6 @@ export class PostRepository implements
 
     async updatePostTotalComments(params: UpdatePostTotalCommentsRepository.Request): Promise<Post> {
         let { postId, totalComments } = params;
-        totalComments = totalComments + 1;
         const rawUpdatedComment = await PostModel.findOneAndUpdate(
             stringToObjectId(postId),
             { $set: { totalComments } },

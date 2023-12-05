@@ -33,7 +33,7 @@ export class DeletePostController extends BaseController {
         }
 
         await this.deletePost.execute(id);
-        return ok({ "message": "Post deleted successfully", });
+        return ok({ "message": "Post deleted successfully" });
     }
 
 }
