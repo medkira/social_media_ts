@@ -1,6 +1,6 @@
 import { GetTotalCommentsByPostIdRepository } from "@application/interfaces/repositories/posts/GetTotalCommentsByPostIdRepository.js";
 import { UpdatePostTotalCommentsRepository } from "@application/interfaces/repositories/posts/UpdatePostTotalCommentsRepository.js";
-import { UpdatePostTotalCommentsInterface } from "@application/interfaces/use-cases/posts/UpdatePostTotalComments.js";
+import { UpdatePostTotalCommentsInterface } from "@application/interfaces/use-cases/posts/UpdatePostTotalCommentsInterface.js";
 
 export class UpdatePostTotalComments implements UpdatePostTotalCommentsInterface {
     constructor(

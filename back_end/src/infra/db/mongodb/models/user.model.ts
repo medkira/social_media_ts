@@ -30,6 +30,16 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+
+    isTwoFactorAuthEnabled: {
+        type: Boolean,
+        default: false,
+    },
+    isEmailVerified: {
+        type: Boolean,
+        default: false,
+    }
+
 });
 
 const UserModel = mongoose.model("user", userSchema);

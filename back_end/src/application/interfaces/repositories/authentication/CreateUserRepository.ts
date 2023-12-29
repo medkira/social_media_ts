@@ -6,6 +6,6 @@ export interface CreateUserRepository {
 }
 
 export namespace CreateUSerRepository {
-    export type Request = Omit<UserProps, 'id' | 'createdAt' | 'updatedAt'>;
+    export type Request = Omit<UserProps, 'id' | 'createdAt' | 'updatedAt' | 'isTwoFactorAuthEnabled' | 'isEmailVerified'>
     export type Response = string;
 }

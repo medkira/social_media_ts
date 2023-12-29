@@ -5,8 +5,8 @@ import { CommentNotFoundError } from "@application/errors/CommentNotFoundError.j
 import { PermissionError } from "@infra/http/errors/PermissionError.js";
 import { DeleteCommentInterface } from "@application/interfaces/use-cases/comments/DeleteCommentInterface.js";
 import { GetCommentByIdInterface } from "@application/interfaces/use-cases/comments/GetCommentByIdInterface.js";
-import { UpdatePostTotalCommentsInterface } from "@application/interfaces/use-cases/posts/UpdatePostTotalComments.js";
 import { forbidden, noContent, notFound, ok } from "@infra/http/helper/https.js";
+import { UpdatePostTotalCommentsInterface } from "@application/interfaces/use-cases/posts/UpdatePostTotalCommentsInterface.js";
 export class DeleteCommentControllert extends BaseController {
 
     constructor(

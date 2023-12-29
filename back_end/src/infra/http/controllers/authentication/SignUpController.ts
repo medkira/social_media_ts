@@ -15,9 +15,9 @@ export class SignUpController extends BaseController {
     ) {
         super(signUpValidation);
     }
-    async execute(httpRequest: HttpRequest): Promise<HttpResponse> {
+    async execute(httpRequest: SignUpController.Request): Promise<SignUpController.Response> {
 
-        const { name, username, email, password } = httpRequest.body;
+        const { name, username, email, password } = httpRequest.body!;
         const idOrError = await this.signUp.execute({
             name, username, email, password
         });
@@ -40,6 +40,6 @@ export class SignUpController extends BaseController {
 
 
 export namespace SignUpController {
-    export type Request = HttpRequest<SignInInterface.Request>
+    export type Request = HttpRequest<SignUpInterface.Request>
     export type Response = HttpResponse<{ authenticationToken: string } | EmailInUseError>
 }

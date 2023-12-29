@@ -6,6 +6,7 @@ import { AuthTokenNotProvidedError } from "@infra/http/errors/AuthTokenNotProvid
 import { InvalidAuthTokenError } from "@infra/http/errors/InvalidAuthTokenError.js";
 import { forbidden, ok } from "@infra/http/helper/https.js";
 import { ForbiddenError } from "@application/errors/ForbiddenError.js";
+import { DecodedToken } from "@domain/entities/TokenPayload.js";
 
 export class AuthMiddleware extends BaseMiddleware {
     constructor(
@@ -20,16 +21,16 @@ export class AuthMiddleware extends BaseMiddleware {
             return forbidden(new InvalidAuthTokenError());
         }
 
-        const userIdOrError = await this.authenticate.execute(authToken);
-        if (userIdOrError instanceof ForbiddenError) {
+        const decodedTokenOrError = await this.authenticate.execute(authToken);
+        if (decodedTokenOrError instanceof ForbiddenError) {
             return forbidden(new InvalidAuthTokenError());
         }
-
-        return ok({ userId: userIdOrError });
+        // console.log(ok(decodedTokenOrError))
+        return ok(decodedTokenOrError);
     }
 }
 
 export namespace AuthMiddleware {
     export type Request = HttpRequest<undefined, undefined, { authorization: string }>
-    export type Response = HttpResponse<{ UserId: string } | AuthTokenNotProvidedError | InvalidAuthTokenError>
+    export type Response = HttpResponse<DecodedToken | AuthTokenNotProvidedError | InvalidAuthTokenError>
 }

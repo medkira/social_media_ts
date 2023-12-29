@@ -3,6 +3,9 @@ import { HashComparer } from "@application/interfaces/cryptography/HashComparer.
 import { JWTGenerator } from "@application/interfaces/cryptography/JWTGenerator.js";
 import { LoadUserByEmailRepository } from "@application/interfaces/repositories/authentication/LoadUserByEmailRepository.js";
 import { SignInInterface } from "@application/interfaces/use-cases/authentication/SignInInterface.js";
+import { DecodedToken, DecodedTokenProps } from "@domain/entities/TokenPayload.js";
+import { UserTotp, UserTotpProps } from "@domain/entities/UserTotp.js";
+import { decode } from "punycode";
 
 export class SignIn implements SignInInterface {
     constructor(
@@ -27,6 +30,11 @@ export class SignIn implements SignInInterface {
             return new UnauthorizedError();
         }
 
-        return this.jwtGenerator.generate(user.id);
+        // const userTotpProps: UserTotpProps = {
+        //     userId: user?.id,
+        // };
+
+        // const tokenPayload = new UserTotp(userTotpProps);
+        return this.jwtGenerator.generate({ userId: user.id });
     }
 }

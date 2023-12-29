@@ -1,7 +1,6 @@
 import { HashComparer } from "@application/interfaces/cryptography/HashComparer.js";
 import { HashGenerator } from "@application/interfaces/cryptography/HashGenerator.js";
 import bcrypt from 'bcrypt';
-import { Console } from "console";
 
 export class BcryptAdapter implements HashGenerator, HashComparer {
     constructor(private readonly salt: number) { }

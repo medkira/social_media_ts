@@ -7,6 +7,6 @@ export interface SignUpInterface extends UseCase<SignUpInterface.Request, SignUp
 }
 
 export namespace SignUpInterface {
-    export type Request = Omit<UserProps, 'id' | 'createdAt' | 'updatedAt'>
+    export type Request = Omit<UserProps, 'id' | 'createdAt' | 'updatedAt' | 'isTwoFactorAuthEnabled' | 'isEmailVerified'>
     export type Response = string | EmailInUseError;
 }

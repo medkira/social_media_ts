@@ -5,14 +5,12 @@ import { HttpRequest } from "@infra/http/interfaces/HttpRequest.js";
 export const expressRouterAdapter = (
     controller: BaseController,
 ) => async (req: Request, res: Response) => {
-
     const htttpRequest: HttpRequest = {
         body: req.body,
         params: req.params,
         headers: req.headers,
         userId: req.userId,
     };
-
 
 
     const httpResponse = await controller.handle(htttpRequest);

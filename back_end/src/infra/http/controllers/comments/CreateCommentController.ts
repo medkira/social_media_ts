@@ -4,9 +4,9 @@ import { BaseController } from "../BaseController.js";
 import { Validation } from "@infra/http/interfaces/Validation.js";
 import { CreateCommentInterface } from "@application/interfaces/use-cases/comments/CreateCommentInterface.js";
 import { GetPostByIdInterface } from "@application/interfaces/use-cases/posts/GetPostByIdInterface.js";
-import { UpdatePostTotalCommentsInterface } from "@application/interfaces/use-cases/posts/UpdatePostTotalComments.js";
 import { PostNotFoundError } from "@application/errors/PostNotFoundError.js";
 import { notFound, ok } from "@infra/http/helper/https.js";
+import { UpdatePostTotalCommentsInterface } from "@application/interfaces/use-cases/posts/UpdatePostTotalCommentsInterface.js";
 
 export class CreateCommentController extends BaseController {
 

@@ -9,9 +9,11 @@ export class Authenticate implements AuthenticateInterface {
 
     async execute(authenticationToken: string): Promise<AuthenticateInterface.Response> {
         const decodeToken = await this.jwtVerifier.verify(authenticationToken);
+
         if (!decodeToken) {
             return new ForbiddenError();
         }
+
         return decodeToken;
     }
 

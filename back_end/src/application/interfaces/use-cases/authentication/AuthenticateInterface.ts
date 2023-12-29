@@ -1,3 +1,4 @@
+import { DecodedToken } from "@domain/entities/TokenPayload.js";
 import { UseCase } from "../UseCase.js";
 import { ForbiddenError } from "@application/errors/ForbiddenError.js";
 
@@ -9,5 +10,5 @@ export interface AuthenticateInterface extends UseCase<AuthenticateInterface.Req
 
 export namespace AuthenticateInterface {
     export type Request = string;
-    export type Response = string | ForbiddenError;
+    export type Response = DecodedToken | ForbiddenError;
 }

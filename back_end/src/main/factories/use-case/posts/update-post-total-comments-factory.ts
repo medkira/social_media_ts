@@ -1,4 +1,4 @@
-import { UpdatePostTotalCommentsInterface } from "@application/interfaces/use-cases/posts/UpdatePostTotalComments.js";
+import { UpdatePostTotalCommentsInterface } from "@application/interfaces/use-cases/posts/UpdatePostTotalCommentsInterface.js";
 import { UpdatePostTotalComments } from "@application/use-cases/posts/UpdatePostTotalComments.js";
 import { CommentRepository } from "@infra/db/mongodb/repositories/CommentRepository.js";
 import { PostRepository } from "@infra/db/mongodb/repositories/PostRepository.js";
