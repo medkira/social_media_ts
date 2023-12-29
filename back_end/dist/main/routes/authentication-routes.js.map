@@ -1,0 +1,1 @@
+{"version":3,"file":"authentication-routes.js","sourceRoot":"","sources":["../../../src/main/routes/authentication-routes.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,oBAAoB,EAAE,MAAM,0CAA0C,CAAC;AAChF,OAAO,EAAE,oBAAoB,EAAE,MAAM,yEAAyE,CAAC;AAI/G,eAAe,CAAC,MAAc,EAAQ,EAAE;IACpC,MAAM,CAAC,IAAI,CAAC,QAAQ,EAAE,oBAAoB,CAAC,oBAAoB,EAAE,CAAC,CAAC,CAAC;AACxE,CAAC,CAAA"}
