@@ -25,7 +25,7 @@ export class SendTotpToEmail implements SendTotpToEmailInterface {
             secure: false,
             auth: {
                 user: 'mohamed.dahmanikira@gmail.com',
-                pass: 'xktq iags fycn mpib',
+                pass: '',
             }
         });
         const message = {
