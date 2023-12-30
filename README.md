@@ -1,6 +1,5 @@
 # social_media_ts
 
-# Social Media Server
 
 Welcome to the Social Media Server, a feature-rich Node.js and Express.js application developed in TypeScript, with MongoDB serving as its database. This server empowers users with a range of features designed to enhance their social media experience while prioritizing security.
 
